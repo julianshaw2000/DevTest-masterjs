@@ -1,0 +1,15 @@
+<div class="pad">
+
+<p>JobId: {{job.jobId}}</p>
+<p>Engineer: {{job.engineer}}</p>
+<div  *ngIf="job.customerId > 0">
+
+<p >CustomerId: {{job.customerId}}</p>
+<p>CustomerName: {{job.customerName}}</p>
+
+</div>
+<p>When: {{job.when | date:'shortDate'}}</p>
+
+<a [routerLink]="['/jobs']">Back</a>
+
+</div>

@@ -1,0 +1,50 @@
+<h2>New customer form</h2>
+<form #customerForm="ngForm" (ngSubmit)="createCustomer(customerForm)">
+
+   <label for="customerName">Customer Name: </label>
+  <input type="text" name="customerName" ngModel required #customerName="ngModel" [(ngModel)]="newcustomer.customerName" />
+  <br>
+  <small *ngIf="customerName.invalid">Please enter a customer name</small>
+
+
+
+
+  <label>Customer Type:</label>
+
+  <p>
+<input class="option" type="radio" value=0 name="customerType" #customerType="ngModel" ngModel required   [(ngModel)]="newcustomer.customerType"> Large
+</p>
+
+<p>
+<input class="option" type="radio" value=1 name="customerType"  #customerType="ngModel" ngModel required  [(ngModel)]="newcustomer.customerType"> Small
+</p>
+
+
+<br>
+  <small *ngIf="customerType.invalid">Please select a customer type</small>
+
+<br>
+<br>
+<br>
+  <button type="submit" [disabled]="customerForm.invalid">Add customer</button>
+</form>
+
+<h2>Customers list</h2>
+<table spacing="0">
+  <thead>
+    <tr>
+      <th>Customer Name</th>
+      <th>Customer Type</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let customer of customers">
+      <td>{{customer.customerName}}</td>
+      <td>{{customer.customerType == 0? "Large": "Small"}}</td>
+      <td>
+        <a [routerLink]="['/customer', customer.customerId]">Open</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
