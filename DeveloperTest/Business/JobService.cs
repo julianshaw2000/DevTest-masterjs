@@ -25,8 +25,7 @@ namespace DeveloperTest.Business
                           JobId = j.JobId,
                           Engineer = j.Engineer,
                           When = j.When,
-                          CustomerId = subList == null ? 0 : subList.CustomerId,
-                          //   CustomerName = subList == null ? string.Empty : subList.CustomerName,
+                          CustomerId = subList?.CustomerId,
                           CustomerName = subList?.CustomerName ?? "Unknown"
                       };
 

@@ -13,10 +13,9 @@
 
   <label for="customer">Customer</label>
   <select name="customer" required #customer="ngModel" ngModel placeholder="Please select" [(ngModel)]="newJob.customerId">
-    <option [ngValue]="undefined" selected>Please select</option>
+    <option [ngValue]="null" selected>Please select</option>
     <option *ngFor="let customer of customers" [ngValue]=customer.customerId>
       {{customer.customerName}}
-
     </option>
   </select>
   <small *ngIf="customer.invalid">Please select an customer</small>
