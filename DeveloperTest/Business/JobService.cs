@@ -26,8 +26,8 @@ namespace DeveloperTest.Business
                           Engineer = j.Engineer,
                           When = j.When,
                           CustomerId = subList == null ? 0 : subList.CustomerId,
-                       //   CustomerName = subList == null ? string.Empty : subList.CustomerName,
-                          CustomerName = subList?.CustomerName ?? "No Customer"
+                          //   CustomerName = subList == null ? string.Empty : subList.CustomerName,
+                          CustomerName = subList?.CustomerName ?? "Unknown"
                       };
 
             return res.ToArray();
@@ -52,7 +52,7 @@ namespace DeveloperTest.Business
                 Engineer = x.Engineer,
                 When = x.When,
                 CustomerId = x.CustomerId,
-                CustomerName = x.CustomerId != 0 ? context.Customers.FirstOrDefault(x=>x.CustomerId == x.CustomerId).CustomerName : ""
+                CustomerName = x.CustomerId != 0 ? context.Customers.FirstOrDefault(x => x.CustomerId == x.CustomerId).CustomerName : ""
             }).SingleOrDefault();
         }
 
@@ -62,8 +62,8 @@ namespace DeveloperTest.Business
             {
                 Engineer = model.Engineer,
                 When = model.When,
-                CustomerId=model.CustomerId = model.CustomerId
-                
+                CustomerId = model.CustomerId = model.CustomerId
+
             });
 
             context.SaveChanges();
